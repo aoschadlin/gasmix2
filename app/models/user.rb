@@ -6,5 +6,14 @@ class User < ActiveRecord::Base
          :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me,
+                  :measurement
+
+  def measurement?
+    if measurement == 0
+      "imperial"
+    else
+      "metric"
+    end
+  end
 end
