@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   def home
-    @title = "Home"
+    if user_signed_in?
+      redirect_to cars_path
+    else
+      @title = "Home"
+    end
   end
 
   def about
